@@ -39,6 +39,7 @@ export const Content = styled.div`
   font-size: 15px;
   line-height: 20px;
   margin-top: 5px;
+  color: black;
 `
 
 

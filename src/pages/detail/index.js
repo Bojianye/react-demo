@@ -1,9 +1,10 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import {actionCreaters} from './store';
 import {ContentWarpper, Container, CardWarpper, Content, Name, CreateDate} from "./style";
 
-class Detail extends Component {
+class Detail extends PureComponent {
     render() {
         return (
             <ContentWarpper>
@@ -14,7 +15,7 @@ class Detail extends Component {
                         <Name>{this.props.userName}</Name>
                         <Content
                             dangerouslySetInnerHTML={{__html: this.props.text}}/>
-                        <img className='main-image' src={this.props.mainImageUrl} alt=""/>
+                        <img className='main-image' src={"http://" + this.props.mainImageUrl} alt=""/>
                         <CreateDate>
                             {this.props.createDate}
                         </CreateDate>
@@ -44,4 +45,4 @@ const mapDispatch = (dispatch) => ({
     }
 });
 
-export default connect(mapState, mapDispatch)(Detail);
+export default connect(mapState, mapDispatch)(withRouter(Detail));

@@ -3,10 +3,7 @@ import {connect} from 'react-redux'
 import Card from '../../components/card'
 import {actionCreaters} from './store'
 import {Link} from 'react-router-dom'
-import {
-    HomeWrapper
-
-} from './style'
+import {HomeWrapper} from './style'
 
 class Home extends Component {
     render() {
