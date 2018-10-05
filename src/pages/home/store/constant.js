@@ -1,0 +1,1 @@
+export const REFRESH_CARD_LIST = 'home/refresh_hard_list';
