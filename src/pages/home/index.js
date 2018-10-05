@@ -12,15 +12,16 @@ class Home extends PureComponent {
             <HomeWrapper>
                 {
                     cardList.map((item, index) => (
-                        <Link key={index} to={'/detail/' + item.get('id_str')}>
+                        <Link key={index} to={'/detail/' + item.get('id')}>
                             <Card
-                                avatarUrl={item.getIn(['user', 'profile_image_url_https'])}
-                                mainImageUrl={item.getIn(['entities', 'urls', 1, 'display_url'])}
-                                userName={item.getIn(['user', 'name'])}
+                                avatarUrl={item.get('avatar')}
+                                mainImageUrl={item.get('mainImage')}
+                                userName={item.get('userName')}
                                 content={item.get('text')}
                             />
                         </Link>
-                    ))}
+                    ))
+                }
             </HomeWrapper>
         )
     }

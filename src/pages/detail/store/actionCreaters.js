@@ -17,11 +17,30 @@ export const getDetail = (id) => {
             const TWITTER_DATE_FORMAT = 'EEE MMM d HH:mm:ss ZZZ yyyy';
             const date = luxon.DateTime.fromString(res.created_at, TWITTER_DATE_FORMAT);
             res.created_at = date.toISODate();
-            const url = res.entities.urls[0];
-            res.imageUrl = url.display_url;
+            const medias = res.entities.media;
+            if (medias){
+                const media = medias[0];
+                res.imageUrl = media.media_url_https;
+            }else {
+                res.imageUrl = ""
+            }
+
             dispatch(changeDetail(res));
         }).catch(() => {
 
         });
     }
 };
+
+export const removedData = () => {
+    return (dispatch) => {
+        dispatch({
+            type: constants.CHANGE_DETAIL,
+            avatarUrl: "",
+            userName: "",
+            mainImageUrl: "",
+            text: "",
+            createDate: ""
+        });
+    }
+}

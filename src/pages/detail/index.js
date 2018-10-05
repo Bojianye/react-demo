@@ -15,7 +15,7 @@ class Detail extends PureComponent {
                         <Name>{this.props.userName}</Name>
                         <Content
                             dangerouslySetInnerHTML={{__html: this.props.text}}/>
-                        <img className='main-image' src={"http://" + this.props.mainImageUrl} alt=""/>
+                        <img className='main-image' src={this.props.mainImageUrl} alt=""/>
                         <CreateDate>
                             {this.props.createDate}
                         </CreateDate>
@@ -27,6 +27,10 @@ class Detail extends PureComponent {
 
     componentDidMount() {
         this.props.getDetail(this.props.match.params.id);
+    }
+
+    componentWillUnmount(){
+        this.props.removed()
     }
 
 }
@@ -42,6 +46,9 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => ({
     getDetail(id) {
         dispatch(actionCreaters.getDetail(id));
+    },
+    removed(){
+      dispatch(actionCreaters.removedData())
     }
 });
 
