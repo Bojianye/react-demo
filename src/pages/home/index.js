@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import Card from '../../components/card'
 import {actionCreaters} from './store'
 import {Link} from 'react-router-dom'
 import {HomeWrapper} from './style'
 
-class Home extends Component {
+class Home extends PureComponent {
     render() {
         const {cardList} = this.props;
         return (
