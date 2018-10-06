@@ -21,9 +21,15 @@ class App extends Component {
                 </div>
             </Provider>
         );
+
+
     }
 }
 {
+
+
+
+
 
 
 }
